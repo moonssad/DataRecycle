@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mainView"
+            type="com.xiniu.datarecycle.mvvm.ActivityViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".mvvm.MainActivity">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycle_title"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:itemBinding="@{mainView.itemBinding}"
+                    app:items="@{mainView.tittles}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:itemHelper="@{mainView.helper}"
+                    app:dragListener="@{mainView}"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constrainedHeight="true"
+                    tools:layout_editor_absoluteY="0dp"
+                    />
+
+        <!--        <com.xiniu.datarecycle.Mvvm.ShakeImageView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintLeft_toRightOf="@+id/recycle_title"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            android:id="@+id/image_button"-->
+        <!--            android:background="@drawable/item_ic"-->
+        <!--            />-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/recycle_title"-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_gride"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:ItemDecoration="@{mainView.grideItemDectoration}"
+            app:itemBinding="@{mainView.grideItemBing}"
+            app:items="@{mainView.grideTittles}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintLeft_toRightOf="@id/recycle_title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:reverseLayout="false"
+            app:spanCount="3"
+            app:itemHelper= "@{mainView.helper}"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout><!--    app:LayoutManagers="@{mainView.layoutManager}"-->
+    <!--    app:ItemDecoration="@{mainView.grideItemDectoration}"-->

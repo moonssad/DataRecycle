@@ -1,0 +1,38 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.2'
+        
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+    }
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            //方式1
+//            options.compilerArgs.add('-Xbootclasspath/p:app/libs/classes.jar')
+            //方式2
+            //options.compilerArgs.add('-Xbootclasspath/p:libs/classes.jar')
+            //方式3
+            options.compilerArgs.add('-Xbootclasspath/p:/Users/mymacpro/Desktop/DataRecycle/app/libs/androidclass.jar')
+        }
+    }
+
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

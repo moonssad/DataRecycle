@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="tittle_name">
+        <item>本周热门</item>
+        <item>技能大学</item>
+        <item>我的助手</item>
+        <item>我的助手q</item>
+        <item>我的助手2</item>
+        <item>我的助手3</item>
+        <item>我的助手4</item>
+        <item>我的助手5</item>
+        <item>我的助手7</item>
+    </array>
+
+    <array name="item_drawable">
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_launcher_background</item>
+
+    </array>
+</resources>

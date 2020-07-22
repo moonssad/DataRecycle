@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="mainView"
+            type="com.xiniu.datarecycle.mvvm.ActivityViewModel" />
+
+        <variable
+            name="grideTittleItem"
+            type="com.xiniu.datarecycle.utils.TittleBean" />
+    </data>
+
+    <com.xiniu.datarecycle.utils.TestRelative
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:dragListener="@{mainView}"
+        app:onchange="@{mainView.onchange}"
+        app:ActivityViewModel= "@{mainView.onCommand}"
+
+        >
+
+        <ImageView
+            android:id="@+id/title"
+            android:layout_width="140px"
+            android:layout_height="140px"
+            android:background="@{grideTittleItem.drawable}"
+            android:scaleType="fitXY"
+
+            />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginTop="10px"
+            android:gravity="center"
+            android:text="名字呢"
+            android:textColor="@color/colorAccent"
+            android:textSize="30px" />
+    </com.xiniu.datarecycle.utils.TestRelative>
+</layout>

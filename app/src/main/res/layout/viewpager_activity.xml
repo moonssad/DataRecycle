@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <com.xiniu.datarecycle.MyViewPager.MyViewPager
+        android:id="@+id/myviewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.xiniu.datarecycle.MyViewPager.MyViewPager>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="64px"
+        android:layout_marginRight="30px">
+
+        <LinearLayout
+            android:id="@+id/ll_point_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="40dp"
+            android:orientation="horizontal"></LinearLayout>
+
+        <View
+            android:id="@+id/view_dot"
+            android:layout_width="20px"
+            android:layout_height="20px"
+            android:background="@drawable/bg_shape_white_point"></View>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="64px"
+        android:layout_marginLeft="30px">
+
+        <View
+            android:id="@+id/view_img"
+            android:layout_width="200px"
+            android:layout_height="140px"
+            android:background="@drawable/background2"></View>
+    </FrameLayout>
+</RelativeLayout>

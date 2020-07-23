@@ -1,5 +1,6 @@
 package com.xiniu.datarecycle.utils;
 
+import com.xiniu.datarecycle.MyViewPager.MyViewPagerActivity;
 import com.xiniu.datarecycle.baseNoModel.Test.ScrollTestActivity;
 import com.xiniu.datarecycle.baseNoModel.Test.TestActivity;
 import com.xiniu.datarecycle.coordinatorLayoutTest.CoordinatorActivity;
@@ -21,8 +22,6 @@ import java.util.Map;
  */
 public class FactoryClass {
     public static HashMap<String, Class> caches;
-
-
     static {
         caches = new HashMap<String, Class>();
         caches.put("mvvm的recycleView", MainActivity.class);
@@ -30,6 +29,7 @@ public class FactoryClass {
         caches.put("Coordinator 子view协调demo1", CoordinatorActivity.class);
         caches.put("Coordinator 子view协调demo2", nestScrollTest.class);
         caches.put("mvp 模型的activity", TestActivity.class);
+        caches.put("自定义viewpager", MyViewPagerActivity.class);
     }
 
     public static Class getClass(String key) {

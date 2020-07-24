@@ -3,6 +3,7 @@ package com.xiniu.datarecycle.MyViewPager;
 import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
@@ -25,10 +26,12 @@ public class TestDialog extends BaseDialog {
     public TestDialog(@NonNull Activity context) {
         super(context);
     }
+
     @Override
     public int getLayoutId() {
         return R.layout.test_a;
     }
+
     @Override
     public void initView() {
         Window window = getWindow();
@@ -36,8 +39,15 @@ public class TestDialog extends BaseDialog {
             View decor = getWindow().getDecorView();
             TextView tv = (TextView) decor.findViewById(R.id.tv1);
             tv.setText("你好呀，哈哈哈");
-        }else{
+        } else {
             super.dismiss();
+
         }
+        setOnTouchSelf(false);
+    }
+
+    @Override
+    public void onTouchEventSelf(@NonNull MotionEvent event) {
+
     }
 }

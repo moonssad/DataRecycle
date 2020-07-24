@@ -37,7 +37,6 @@ public class MyViewPagerActivity extends AppCompatActivity {
     private int dotDistance = 30;
     private List<Integer> mData = new ArrayList<>();
     private View view_img;
-    private boolean isAuto;
     private Handler handler = new Handler(Looper.getMainLooper()) {
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -112,6 +111,14 @@ public class MyViewPagerActivity extends AppCompatActivity {
         });
 
     }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        view.onDestroy();
+    }
+
 
     private void initCirlce() {
         for (int i = 0; i < 4; i++) {

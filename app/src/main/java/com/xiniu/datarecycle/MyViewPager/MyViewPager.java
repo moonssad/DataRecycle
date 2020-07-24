@@ -177,6 +177,10 @@ public class MyViewPager extends ViewGroup {
         }
     }
 
+    public void onDestroy(){
+        velocityTracker.recycle();
+    }
+
     public void autoChange() {
         if (position > getChildCount() - 2) {
             position = -1;

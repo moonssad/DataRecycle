@@ -30,6 +30,8 @@ public class TestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Window window = getWindow();
+        window.setWindowAnimations(R.style.MyViewStyle);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.test_activity);
         fragment = (FrameLayout)findViewById(R.id.fm);

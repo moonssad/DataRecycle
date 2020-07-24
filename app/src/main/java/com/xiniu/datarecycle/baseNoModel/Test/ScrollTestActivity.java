@@ -2,6 +2,7 @@ package com.xiniu.datarecycle.baseNoModel.Test;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 
 import com.xiniu.datarecycle.R;
 
@@ -21,6 +22,8 @@ public class ScrollTestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Window window = getWindow();
+        window.setWindowAnimations(R.style.MyViewStyle);
         setContentView(R.layout.test_image);
         imageView = (MyImageView) findViewById(R.id.iv_main);
     }

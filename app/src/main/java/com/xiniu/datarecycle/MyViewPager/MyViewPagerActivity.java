@@ -2,8 +2,10 @@ package com.xiniu.datarecycle.MyViewPager;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.view.View;
+import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -32,22 +34,22 @@ public class MyViewPagerActivity extends AppCompatActivity {
     private LinearLayout LinearLayout;
     private View itemView;
     private LinearLayout.LayoutParams params;
-    private int dotDistance =30;
+    private int dotDistance = 30;
     private List<Integer> mData = new ArrayList<>();
     private View view_img;
     private boolean isAuto;
-    private Handler handler = new Handler(){
+    private Handler handler = new Handler(Looper.getMainLooper()) {
         @Override
         public void handleMessage(@NonNull Message msg) {
-            switch(msg.what) {
+            switch (msg.what) {
                 case 0:
                     view.autoChange();
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            handler.obtainMessage(0,0).sendToTarget();
+                            handler.obtainMessage(0, 0).sendToTarget();
                         }
-                    },5000);
+                    }, 5000);
                     break;
                 default:
                     break;
@@ -59,10 +61,13 @@ public class MyViewPagerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Window window = getWindow();
+        window.setWindowAnimations(R.style.MyViewStyle);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.viewpager_activity);
-        view = (MyViewPager)findViewById(R.id.myviewpager);
-        LinearLayout =(LinearLayout)findViewById(R.id.ll_point_list);
-        itemView =(View)findViewById(R.id.view_dot);
+        view = (MyViewPager) findViewById(R.id.myviewpager);
+        LinearLayout = (LinearLayout) findViewById(R.id.ll_point_list);
+        itemView = (View) findViewById(R.id.view_dot);
         initCirlce();
         view.setOnPageScrollListener(new MyViewPager.OnPageScrollListener() {
             @Override
@@ -81,11 +86,13 @@ public class MyViewPagerActivity extends AppCompatActivity {
                 itemView.setLayoutParams(params);
             }
         });
-        view_img = (View)findViewById(R.id.view_img);
+        view_img = (View) findViewById(R.id.view_img);
         view_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handler.obtainMessage(0,0).sendToTarget();
+                handler.obtainMessage(0, 0).sendToTarget();
+                TestDialog testDialog = new TestDialog(MyViewPagerActivity.this);
+                testDialog.showAutoDismiss(3000);
             }
 
 /**
@@ -107,7 +114,7 @@ public class MyViewPagerActivity extends AppCompatActivity {
     }
 
     private void initCirlce() {
-        for (int i = 0; i <4; i++){
+        for (int i = 0; i < 4; i++) {
             mData.add(i);
         }
         for (int i = 0; i < mData.size(); i++) {

@@ -2,6 +2,7 @@ package com.xiniu.datarecycle.coordinatorLayoutTest;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Window;
 
 import com.xiniu.datarecycle.baseNoModel.Test.TextRecycleAdapter;
 import com.xiniu.datarecycle.R;
@@ -30,7 +31,8 @@ public class CoordinatorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Window window = getWindow();
+        window.setWindowAnimations(R.style.MyViewStyle);
         setContentView(R.layout.test_coordinator);
         recyclerView =(RecyclerView)findViewById(R.id.recycler_view);
         list.add("wangyihe");

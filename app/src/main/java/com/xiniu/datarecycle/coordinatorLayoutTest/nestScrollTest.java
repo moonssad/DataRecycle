@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 
 import com.xiniu.datarecycle.R;
@@ -28,6 +29,8 @@ public class nestScrollTest extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Window window = getWindow();
+        window.setWindowAnimations(R.style.MyViewStyle);
         setContentView(R.layout.test_22);
         imageView = (ImageView) findViewById(R.id.iv);
         img1 = (ImageView) findViewById(R.id.img1);

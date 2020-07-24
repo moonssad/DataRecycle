@@ -1,7 +1,10 @@
 package com.xiniu.datarecycle.mvvm;
 
 import android.os.Bundle;
+import android.view.Window;
 
+
+import com.xiniu.datarecycle.R;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +28,8 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseVi
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Window window = getWindow();
+        window.setWindowAnimations(R.style.MyViewStyle);
         dataBinding = DataBindingUtil.setContentView(this, getLayoutId());
         viewModel = ViewModelProviders.of(this).get(getViewModelClazz());
         dataBinding.setVariable(getViewModelId(), viewModel);

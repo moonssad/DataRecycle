@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
+import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -32,6 +33,7 @@ public class MyViewPager extends ViewGroup {
     private int ScrollX, position;
     private int startX;
     private int startY;
+    private int scrollPosition;
 
     public MyViewPager(Context context) {
         this(context, null);
@@ -99,6 +101,9 @@ public class MyViewPager extends ViewGroup {
 
     }
 
+
+    VelocityTracker velocityTracker;
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
@@ -106,21 +111,53 @@ public class MyViewPager extends ViewGroup {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 ScrollX = getScrollX();//相对于初始位置滑动的距离
+                velocityTracker = VelocityTracker.obtain();
                 break;
             case MotionEvent.ACTION_MOVE:
+                velocityTracker.addMovement(event);
                 ScrollX = getScrollX();//相对于初始位置滑动的距离
-                position = (getScrollX() + getWidth() / 2) / getWidth();
-                if (position >= getChildCount()) {
-                    position = getChildCount() - 1;
-                }
-                if (position < 0) {
-                    position = 0;
-                }
+//                position = (getScrollX() + getWidth() / 2) / getWidth();
+//                if (position >= getChildCount()) {
+//                    position = getChildCount() - 1;
+//                }
+//                if (position < 0) {
+//                    position = 0;
+//                }
                 if (mOnPageScrollListener != null) {
-                    mOnPageScrollListener.onPageScrolled(getScrollX() * 1.0f / getWidth(), position);
+                    mOnPageScrollListener.onPageScrolled(getScrollX() * 1.0f / getWidth());
                 }
                 break;
             case MotionEvent.ACTION_UP:
+                scrollPosition = (getScrollX() + getWidth() / 2) / getWidth();
+                if (scrollPosition >= getChildCount()) {
+                    scrollPosition = getChildCount() - 1;
+                }
+                if (scrollPosition < 0) {
+                    scrollPosition = 0;
+                }
+                velocityTracker.computeCurrentVelocity(10);
+                float xVelocity = velocityTracker.getXVelocity();//速度
+                if (xVelocity < 0) {
+                    if (Math.abs(xVelocity) > 50) {
+                        //todo 左滑
+                        position = position + 1;
+                        if (position >= getChildCount()) {
+                            position = getChildCount() - 1;
+                        }
+                    } else {
+                        position = scrollPosition;
+                    }
+                } else {
+                    if (xVelocity > 50) {
+                        //todo 优化
+                        position = position - 1;
+                        if (position < 0) {
+                            position = 0;
+                        }
+                    } else {
+                        position = scrollPosition;
+                    }
+                }
                 scroller.startScroll(ScrollX, 0, -(ScrollX - position * getWidth()), 0);
                 invalidate();//使用
                 if (mOnPageScrollListener != null) {
@@ -144,10 +181,10 @@ public class MyViewPager extends ViewGroup {
         if (position > getChildCount() - 2) {
             position = -1;
         }
-        if (position==-1){
+        if (position == -1) {
             scroller.startScroll((getChildCount() - 1) * getWidth(), 0, -(getChildCount() - 1) * getWidth(), 0);
-        }else{
-            scroller.startScroll((position) * getWidth(), 0, getWidth(), 0,1000);
+        } else {
+            scroller.startScroll((position) * getWidth(), 0, getWidth(), 0, 1000);
 
         }
         position = position + 1;
@@ -161,9 +198,8 @@ public class MyViewPager extends ViewGroup {
     public interface OnPageScrollListener {
         /**
          * @param offsetPercent offsetPercent：getScrollX滑动的距离占屏幕宽度的百分比
-         * @param position
          */
-        void onPageScrolled(float offsetPercent, int position);
+        void onPageScrolled(float offsetPercent);
 
         void onPageSelected(int position);
     }

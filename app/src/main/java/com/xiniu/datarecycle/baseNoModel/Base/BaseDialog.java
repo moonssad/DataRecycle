@@ -75,7 +75,6 @@ public abstract class BaseDialog extends Dialog {
 
     public abstract int getLayoutId();
 
-    //设置点击时间
     public abstract void initView();
 
     //显示后自动小时

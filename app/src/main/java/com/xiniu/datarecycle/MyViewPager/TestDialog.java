@@ -22,7 +22,6 @@ import androidx.annotation.NonNull;
  */
 public class TestDialog extends BaseDialog {
 
-
     public TestDialog(@NonNull Activity context) {
         super(context);
     }
@@ -36,7 +35,6 @@ public class TestDialog extends BaseDialog {
         if (window != null) {
             View decor = getWindow().getDecorView();
             TextView tv = (TextView) decor.findViewById(R.id.tv1);
-            setTitle("世界人民大团结万岁");
             tv.setText("你好呀，哈哈哈");
         }else{
             super.dismiss();

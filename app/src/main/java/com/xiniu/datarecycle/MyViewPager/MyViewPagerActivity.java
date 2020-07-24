@@ -71,7 +71,7 @@ public class MyViewPagerActivity extends AppCompatActivity {
         initCirlce();
         view.setOnPageScrollListener(new MyViewPager.OnPageScrollListener() {
             @Override
-            public void onPageScrolled(float offsetPercent, int position) {
+            public void onPageScrolled(float offsetPercent) {
                 float leftMargin = offsetPercent * dotDistance;
                 FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) itemView.getLayoutParams();
                 params.leftMargin = (int) leftMargin; //滑动后更新距离

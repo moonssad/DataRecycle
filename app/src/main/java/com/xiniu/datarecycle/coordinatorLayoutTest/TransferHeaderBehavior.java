@@ -2,6 +2,7 @@ package com.xiniu.datarecycle.coordinatorLayoutTest;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -36,7 +37,7 @@ public class TransferHeaderBehavior extends CoordinatorLayout.Behavior<ImageView
 
     @Override
     public boolean onDependentViewChanged(@NonNull CoordinatorLayout parent, @NonNull ImageView child, @NonNull View dependency) {
-
+        Log.e( "onDependentViewChanged:","nice2");
         if (mOriginalHeaderX == 0) {
             this.mOriginalHeaderX = dependency.getWidth()/2  - child.getWidth() /2;
         }

@@ -1,9 +1,11 @@
 package com.xiniu.datarecycle.MyViewPager;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.FrameLayout;
@@ -11,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.xiniu.datarecycle.R;
+import com.xiniu.datarecycle.mvvm.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,29 +92,48 @@ public class MyViewPagerActivity extends AppCompatActivity {
         view_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handler.obtainMessage(0, 0).sendToTarget();
-                TestDialog testDialog = new TestDialog(MyViewPagerActivity.this);
-                testDialog.showAutoDismiss(3000);
-            }
+//                handler.obtainMessage(0, 0).sendToTarget();
+//                TestDialog testDialog = new TestDialog(MyViewPagerActivity.this);
+//                testDialog.showAutoDismiss(3000);
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        while (true) {
+//                            try {
+//                                Thread.sleep(2000);
+//                                MyViewPagerActivity.this.showLog( Thread.currentThread().getName());
+//                            } catch (InterruptedException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//                    }
+//                }).start();
+//            }
 
-/**
+
+/*
  * 添加新的view，给viewgroup
  */
-//                ImageView iv = new ImageView(MyViewPagerActivity.this);
-//                iv.setBackgroundResource(R.drawable.background2);
-//                view.addView(iv);
-//                View point = new View(MyViewPagerActivity.this);
-//                point.setBackgroundResource(R.drawable.bg_point_selector);
-//                params = new LinearLayout.LayoutParams(20, 20);
-//                params.leftMargin = 10;
-//                point.setEnabled(false);
-//                point.setLayoutParams(params);
-//                LinearLayout.addView(point);
 
+                ImageView iv = new ImageView(MyViewPagerActivity.this);
+                iv.setBackgroundResource(R.drawable.background2);
+                view.addView(iv);
+
+                View point = new View(MyViewPagerActivity.this);
+                point.setBackgroundResource(R.drawable.bg_point_selector);
+                params = new LinearLayout.LayoutParams(20, 20);
+                params.leftMargin = 10;
+                point.setEnabled(false);
+                point.setLayoutParams(params);
+                LinearLayout.addView(point);
+
+            }
         });
-
     }
 
+    public void showLog(String logs) {
+        Log.e("run: ", logs);
+    }
 
     @Override
     protected void onStop() {

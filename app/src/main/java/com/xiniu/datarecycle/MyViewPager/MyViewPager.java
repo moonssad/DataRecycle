@@ -91,7 +91,7 @@ public class MyViewPager extends ViewGroup {
                 int dy = endY - startY;
                 if (Math.abs(dx) > Math.abs(dy)) {
                     // 左右滑动
-                    return true;// 中断事件传递, 不允许孩子响应事件了, 由父控件处理
+                    return true;// 中断事件传递, 不允许childView响应事件了, 由父控件处理
                 }
                 break;
             default:
@@ -178,7 +178,9 @@ public class MyViewPager extends ViewGroup {
     }
 
     public void onDestroy(){
-        velocityTracker.recycle();
+        if (velocityTracker!=null){
+            velocityTracker.recycle();
+        }
     }
 
     public void autoChange() {

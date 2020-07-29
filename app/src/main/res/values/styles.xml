@@ -23,5 +23,8 @@
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:windowFrame">@null</item>
     </style>
-
+    <style name="identifyStyle">
+        <item name="android:windowEnterAnimation">@anim/identify_left_in</item>
+        <item name="android:windowExitAnimation">@anim/identify_left_out</item>
+    </style>
 </resources>

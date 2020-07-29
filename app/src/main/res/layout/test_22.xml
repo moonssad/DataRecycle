@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -31,13 +32,16 @@
 
     <include layout="@layout/nest_scroll" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/t1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_anchor="@+id/iv"
-        app:layout_behavior=".coordinatorLayoutTest.TranslucentBehavior"
-        />
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/t1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_anchor="@+id/iv"-->
+<!--        app:layout_behavior=".coordinatorLayoutTest.TranslucentBehavior"-->
+<!--        />-->
+
+<!--    app:layout_behavior=".coordinatorLayoutTest.TransferHeaderBehavior"-->
+
     <ImageView
         android:id="@+id/circle"
         android:layout_width="50dp"
@@ -45,7 +49,7 @@
         android:layout_gravity="center_horizontal"
         android:elevation="5dp"
         android:src="@drawable/ic_launcher"
-        android:background="@drawable/ic_launcher"
         app:layout_anchor="@id/iv"
-        app:layout_behavior=".coordinatorLayoutTest.TransferHeaderBehavior" />
+        app:layout_behavior=".coordinatorLayoutTest.TransferHeaderBehavior"
+        />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

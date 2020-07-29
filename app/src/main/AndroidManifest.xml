@@ -29,6 +29,8 @@
         <activity android:name=".baseNoModel.Test.TestActivity"/>
         <activity android:name=".coordinatorLayoutTest.nestScrollTest" />
         <activity android:name=".MyViewPager.MyViewPagerActivity" />
+        <activity android:name=".RightScrollAcvitity.RightActivity" />
+        <activity android:name=".RightScrollAcvitity.LeftActivity" />
     </application>
 
 </manifest>

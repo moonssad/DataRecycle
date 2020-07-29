@@ -1,6 +1,8 @@
 package com.xiniu.datarecycle.utils;
 
 import com.xiniu.datarecycle.MyViewPager.MyViewPagerActivity;
+import com.xiniu.datarecycle.RightScrollAcvitity.LeftActivity;
+import com.xiniu.datarecycle.RightScrollAcvitity.RightActivity;
 import com.xiniu.datarecycle.baseNoModel.Test.ScrollTestActivity;
 import com.xiniu.datarecycle.baseNoModel.Test.TestActivity;
 import com.xiniu.datarecycle.coordinatorLayoutTest.CoordinatorActivity;
@@ -30,6 +32,8 @@ public class FactoryClass {
         caches.put("Coordinator 子view协调demo2", nestScrollTest.class);
         caches.put("mvp 模型的activity", TestActivity.class);
         caches.put("自定义viewpager", MyViewPagerActivity.class);
+        caches.put("右侧滑动Activity", RightActivity.class);
+        caches.put("zuo侧滑动Activity", LeftActivity.class);
     }
 
     public static Class getClass(String key) {

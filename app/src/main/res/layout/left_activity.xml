@@ -37,4 +37,13 @@
         android:alpha="0.5"
         android:id="@+id/left_check"
         />
+
+    <com.xiniu.datarecycle.utils.Views.doubleCircleView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/left_check"
+        app:layout_constraintRight_toRightOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

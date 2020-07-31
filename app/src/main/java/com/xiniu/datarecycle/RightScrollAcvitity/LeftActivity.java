@@ -44,7 +44,6 @@ public class LeftActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.left_activity);
         initView();
-
     }
 
     @SuppressLint({"ClickableViewAccessibility", "CheckResult"})

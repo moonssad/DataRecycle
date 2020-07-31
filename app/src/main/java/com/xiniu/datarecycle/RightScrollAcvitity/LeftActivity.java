@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import io.reactivex.functions.Consumer;
 
 /**
@@ -29,7 +30,7 @@ import io.reactivex.functions.Consumer;
 public class LeftActivity extends AppCompatActivity {
     private String TAG = "left";
     ImageView left_check;
-    ExpendLeftView midefindView;
+    ConstraintLayout midefindView;
     int width;
     ValueAnimator valueAnimator;
     private float startPosition;
@@ -49,7 +50,7 @@ public class LeftActivity extends AppCompatActivity {
     @SuppressLint({"ClickableViewAccessibility", "CheckResult"})
     public void initView() {
         left_check = (ImageView) findViewById(R.id.left_check);
-        midefindView = (ExpendLeftView) findViewById(R.id.idefindView);
+        midefindView = (ConstraintLayout) findViewById(R.id.idefindView);
         valueAnimator = new ValueAnimator();
         valueAnimator.setDuration(200);
         valueAnimator.addUpdateListener(listener);

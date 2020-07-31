@@ -15,7 +15,8 @@
         tools:layout_editor_absoluteX="66dp"
         tools:layout_editor_absoluteY="0dp" />
 
-    <com.xiniu.datarecycle.RightScrollAcvitity.ExpendLeftView
+    <include
+        layout="@layout/idenfind"
         android:layout_width="300dp"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,6 +36,5 @@
         android:paddingTop="20dp"
         android:alpha="0.5"
         android:id="@+id/left_check"
-
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

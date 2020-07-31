@@ -70,7 +70,6 @@
                 android:src="@drawable/background4"
                 android:scaleType="fitXY"
                 android:id="@+id/img4"
-
                 />
         </androidx.cardview.widget.CardView>
 

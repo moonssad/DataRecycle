@@ -42,10 +42,14 @@ public class newCarView extends SurfaceView implements SurfaceHolder.Callback2 {
     private Paint paint;
     private int width, height;
     private int buindingWidth = 100;
-
     private List<Buildings> lists;
     private int step = 3;
+    private boolean isStop;
 
+    private Paint sunPaint;
+    private float sunRadius;
+    private double sunDelta;
+    private double sunStep = 0;
 
     public newCarView(Context context) {
         this(context, null);
@@ -77,6 +81,17 @@ public class newCarView extends SurfaceView implements SurfaceHolder.Callback2 {
         }
         typeArray.recycle();
         lists = new ArrayList<>();
+
+        sunPaint = new Paint();
+        sunPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        sunPaint.setAntiAlias(true);
+        sunPaint.setColor(getResources().getColor(R.color.yellow));
+        sunPaint.setShadowLayer(100, 0, 0, getResources().getColor(R.color.white));
+        sunRadius = 60;
+        sunDelta = Math.PI / 300;
+        sunStep = sunDelta * 30;
+
+
     }
 
     @Override
@@ -86,6 +101,7 @@ public class newCarView extends SurfaceView implements SurfaceHolder.Callback2 {
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
+        isStop = false;
         initThread();
         sendDrawMessage();
 
@@ -98,6 +114,7 @@ public class newCarView extends SurfaceView implements SurfaceHolder.Callback2 {
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
+        isStop = true;
         handlerThread.quit();
         carView.recycle();
         carView = null;
@@ -116,15 +133,20 @@ public class newCarView extends SurfaceView implements SurfaceHolder.Callback2 {
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
                 if (msg.what == 1) {
-
-                    draw();
-                    sendDrawMessage();
+                    if (!isStop) {
+                        draw();
+                        sendDrawMessage();
+                    }
                 }
             }
         };
     }
 
     public void sendDrawMessage() {
+        sunStep = sunStep + sunDelta;
+        if (sunStep > (Math.PI - sunDelta * 30)) {
+            sunStep = sunDelta * 30;
+        }
         Message msg1 = Message.obtain();
         msg1.what = 1;
         worker.sendMessageDelayed(msg1, 16);
@@ -142,6 +164,7 @@ public class newCarView extends SurfaceView implements SurfaceHolder.Callback2 {
             canvas.translate(width / 2, height * 0.8f);
             RectF rect = new RectF(-carView.getWidth() / 2, -carView.getHeight(), carView.getWidth() / 2, carView.getHeight() / 4);
             canvas.drawBitmap(carView, null, rect, paint);
+            canvas.drawCircle((float) ((width / 2) * Math.cos(sunStep)), -(float) ((width / 2) * Math.sin(sunStep)), sunRadius -(float) (sunRadius/3 * Math.cos(sunStep*2)), sunPaint);
             getHolder().unlockCanvasAndPost(canvas);
         }
     }
@@ -155,21 +178,16 @@ public class newCarView extends SurfaceView implements SurfaceHolder.Callback2 {
             for (int i = 0; i < buildings.length; i++) {
                 RectF rect = new RectF(i * buindingWidth, height * 0.8f - carView.getHeight(), i * buindingWidth + buindingWidth, height * 0.8f + carView.getHeight() / 4);
                 lists.add(new Buildings(rect, buildings[i], width, buindingWidth));
-                Log.e("onFinishInflate: ", rect.toString());
             }
         }
+        Log.e("onMeasure: ", width + "|" + height);
         setMeasuredDimension(width, height);
     }
 
     @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-//        for (int i = 0; i < maxBuildingNum+1; i++) {
-//            RectF  rect = new RectF(i*buindingWidth, height/2-carView.getHeight(),i*buindingWidth+buindingWidth,height/2);
-//            lists.add(new Buildings(rect,buildings[(int)(Math.random()*buildings.length)],width,buindingWidth));
-//            Log.e( "onFinishInflate: ",rect.toString());
-//        }
-
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        Log.e("onLayout: ", width + "|" + height);
     }
 
     public Bitmap getBitmap(int ResId) {

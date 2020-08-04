@@ -38,7 +38,16 @@
         android:id="@+id/left_check"
         />
 
-    <com.xiniu.datarecycle.utils.Views.doubleCircleView
+<!--    <com.xiniu.datarecycle.utils.Views.doubleCircleView-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintLeft_toRightOf="@+id/left_check"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        />-->
+
+    <com.xiniu.datarecycle.utils.Views.CartonView
         android:layout_width="0dp"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -46,4 +55,14 @@
         app:layout_constraintLeft_toRightOf="@+id/left_check"
         app:layout_constraintRight_toRightOf="parent"
         />
+
+    <com.xiniu.datarecycle.utils.Views.newCarView
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/left_check"
+        />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

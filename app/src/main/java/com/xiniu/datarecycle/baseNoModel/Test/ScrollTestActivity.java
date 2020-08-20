@@ -1,8 +1,11 @@
 package com.xiniu.datarecycle.baseNoModel.Test;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
 import com.xiniu.datarecycle.R;
 
@@ -19,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public class ScrollTestActivity extends AppCompatActivity {
    MyImageView imageView;
+   Switch mSwitch;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +30,18 @@ public class ScrollTestActivity extends AppCompatActivity {
         window.setWindowAnimations(R.style.MyViewStyle);
         setContentView(R.layout.test_image);
         imageView = (MyImageView) findViewById(R.id.iv_main);
+        mSwitch = (Switch)findViewById(R.id.kaiguan);
+        mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Log.e( "onCheckedChanged: ","isChecked"+isChecked+buttonView.getId());
+                switch(buttonView.getId()) {
+                    case R.id.kaiguan:
+                        Log.e( "onCheckedChanged:getid","get id kaiguan");
+                        break;
+                }
+            }
+        });
     }
 
   //  规则：左加右减，上加下减

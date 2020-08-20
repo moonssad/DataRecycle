@@ -4,6 +4,7 @@ import com.xiniu.datarecycle.MyViewPager.MyViewPagerActivity;
 import com.xiniu.datarecycle.RightScrollAcvitity.LeftActivity;
 import com.xiniu.datarecycle.RightScrollAcvitity.RightActivity;
 import com.xiniu.datarecycle.baseNoModel.Test.ScrollTestActivity;
+import com.xiniu.datarecycle.baseNoModel.Test.TabLayoutActivity;
 import com.xiniu.datarecycle.baseNoModel.Test.TestActivity;
 import com.xiniu.datarecycle.coordinatorLayoutTest.CoordinatorActivity;
 import com.xiniu.datarecycle.coordinatorLayoutTest.nestScrollTest;
@@ -34,6 +35,7 @@ public class FactoryClass {
         caches.put("自定义viewpager", MyViewPagerActivity.class);
         caches.put("右侧滑动Activity", RightActivity.class);
         caches.put("zuo侧滑动Activity", LeftActivity.class);
+        caches.put("tablayout Activity", TabLayoutActivity.class);
     }
 
     public static Class getClass(String key) {

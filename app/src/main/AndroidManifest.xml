@@ -31,6 +31,7 @@
         <activity android:name=".MyViewPager.MyViewPagerActivity" />
         <activity android:name=".RightScrollAcvitity.RightActivity" />
         <activity android:name=".RightScrollAcvitity.LeftActivity" />
+        <activity android:name=".baseNoModel.Test.TabLayoutActivity" />
     </application>
 
 </manifest>

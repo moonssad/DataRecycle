@@ -64,6 +64,16 @@
             android:text="平滑复位"
 
             />
+        <Switch
+            android:id="@+id/kaiguan"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:thumb="@drawable/thumb"
+            android:track="@drawable/track"
+            android:textOn="开启"
+            android:textOff="关闭"
+            android:showText="true"
+            />
     </LinearLayout>
 
     <com.xiniu.datarecycle.baseNoModel.Test.MyImageView
@@ -73,6 +83,5 @@
         android:background="#888888"
         android:scaleType="center"
         android:src="@drawable/ic_launcher" />
-
 
 </LinearLayout>

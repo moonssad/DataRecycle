@@ -10,4 +10,8 @@
     <color name="blue">#35C79E</color>
     <color name="yellow">#FFFFFF00 </color>
     <color name="transparent" >#00000000</color>
+    <color name="gray_alpha">#C0BBBBBB</color>
+    <color name="auto_color_3f8ee9_60">#993f8ee9</color>
+    <color name="auto_color_ff0096ff">#ff0096ff</color>
+
 </resources>

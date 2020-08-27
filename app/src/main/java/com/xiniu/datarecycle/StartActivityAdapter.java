@@ -68,6 +68,9 @@ public class StartActivityAdapter extends BaseRecycleAdapter<String, StartActivi
         holder.context = content;
     }
 
+
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
         String context;

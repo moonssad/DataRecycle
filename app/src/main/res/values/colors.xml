@@ -10,4 +10,6 @@
     <color name="blue">#35C79E</color>
     <color name="yellow">#FFFFFF00 </color>
     <color name="transparent" >#00000000</color>
+    <color name="gray">#33666666</color>
+    <color name="bg_tab">#2b94ee</color>
 </resources>

@@ -2,7 +2,7 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="200dp"
     android:layout_height="wrap_content"
     android:scrollbars="none">
 
@@ -10,10 +10,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
+            android:layout_height="100dp"
             app:cardElevation="3dp"
             >
             <TextView
@@ -21,8 +18,10 @@
                 android:layout_height="match_parent"
                 android:id="@+id/activity_name"
                 tools:text="hello"
-                android:gravity="center"
-                android:textSize="30dp"
+                android:gravity="start"
+                android:textSize="15dp"
+                android:singleLine="true"
+                android:ellipsize="end"
                 />
         </androidx.cardview.widget.CardView>
 

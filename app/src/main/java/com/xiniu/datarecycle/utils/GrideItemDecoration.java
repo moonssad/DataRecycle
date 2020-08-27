@@ -1,5 +1,6 @@
 package com.xiniu.datarecycle.utils;
 
+import android.content.res.Resources;
 import android.graphics.Rect;
 import android.view.View;
 

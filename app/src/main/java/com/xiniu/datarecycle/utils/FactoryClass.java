@@ -3,6 +3,7 @@ package com.xiniu.datarecycle.utils;
 import com.xiniu.datarecycle.MyViewPager.MyViewPagerActivity;
 import com.xiniu.datarecycle.RightScrollAcvitity.LeftActivity;
 import com.xiniu.datarecycle.RightScrollAcvitity.RightActivity;
+import com.xiniu.datarecycle.WebVIewTest;
 import com.xiniu.datarecycle.baseNoModel.Test.ScrollTestActivity;
 import com.xiniu.datarecycle.baseNoModel.Test.TabLayoutActivity;
 import com.xiniu.datarecycle.baseNoModel.Test.TestActivity;
@@ -36,6 +37,8 @@ public class FactoryClass {
         caches.put("右侧滑动Activity", RightActivity.class);
         caches.put("zuo侧滑动Activity", LeftActivity.class);
         caches.put("tablayout Activity", TabLayoutActivity.class);
+        caches.put("WebView demo", WebVIewTest.class);
+
     }
 
     public static Class getClass(String key) {

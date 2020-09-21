@@ -16,6 +16,7 @@ import android.widget.ImageView;
 
 import com.xiniu.datarecycle.utils.Const;
 import com.xiniu.datarecycle.utils.FactoryClass;
+import com.xiniu.datarecycle.utils.MyThreadPool;
 import com.xiniu.datarecycle.utils.PermissionChecker;
 import com.xiniu.datarecycle.utils.ShareUtil;
 import com.yey.library_restartapp.YRestartAPP;
@@ -75,6 +76,7 @@ public class StartActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(LayoutManager);
 //        recyclerView.addItemDecoration(new GrideItemDecoration(3,50,50 ,false));
         recyclerView.setAdapter(activityAdapter);
+        MyThreadPool.doRun();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)

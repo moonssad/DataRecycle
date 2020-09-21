@@ -9,6 +9,7 @@ import com.xiniu.datarecycle.baseNoModel.Test.TabLayoutActivity;
 import com.xiniu.datarecycle.baseNoModel.Test.TestActivity;
 import com.xiniu.datarecycle.coordinatorLayoutTest.CoordinatorActivity;
 import com.xiniu.datarecycle.coordinatorLayoutTest.nestScrollTest;
+import com.xiniu.datarecycle.mediaplay.mediaTestActivity;
 import com.xiniu.datarecycle.mvvm.MainActivity;
 
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class FactoryClass {
         caches.put("zuo侧滑动Activity", LeftActivity.class);
         caches.put("tablayout Activity", TabLayoutActivity.class);
         caches.put("WebView demo", WebVIewTest.class);
+        caches.put("视频播放", mediaTestActivity.class);
 
     }
 

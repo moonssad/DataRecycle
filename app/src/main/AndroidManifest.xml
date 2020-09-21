@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -34,6 +34,10 @@
         <activity android:name=".RightScrollAcvitity.LeftActivity" />
         <activity android:name=".baseNoModel.Test.TabLayoutActivity" />
         <activity android:name=".WebVIewTest" />
+        <activity android:name=".mediaplay.mediaTestActivity"
+            android:theme="@style/AppThemetrans"
+
+            />
     </application>
 
 </manifest>

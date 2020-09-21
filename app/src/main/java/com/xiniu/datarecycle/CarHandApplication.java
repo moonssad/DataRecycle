@@ -6,6 +6,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.xiniu.datarecycle.utils.MMKVUtil;
+
 
 /**
  * 创建者：wyz
@@ -25,6 +27,7 @@ public class CarHandApplication extends Application implements Application.Activ
         this.app = this;
         this.context = this;
         registerActivityLifecycleCallbacks(this);
+        MMKVUtil.init(this);
 
 //        //启用Log日志
 //        OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();

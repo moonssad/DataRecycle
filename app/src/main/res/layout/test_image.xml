@@ -83,5 +83,8 @@
         android:background="#888888"
         android:scaleType="center"
         android:src="@drawable/ic_launcher" />
+    <com.xiniu.datarecycle.utils.ScaleLineView
+        android:layout_width="300dp"
+        android:layout_height="100dp"/>
 
 </LinearLayout>
